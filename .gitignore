@@ -1,0 +1,4 @@
+node_modules
+
+# exclude database file
+src/db/*.db

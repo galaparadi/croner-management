@@ -1,0 +1,20 @@
+{
+  "name": "croner-handler",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "croner": "^4.3.9",
+    "sequelize": "^6.19.0",
+    "sqlite3": "^5.0.5"
+  }
+}
