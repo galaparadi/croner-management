@@ -2,3 +2,9 @@ node_modules
 
 # exclude database file
 src/db/*.db
+
+# no.js corat - coret
+no.js
+
+# vscode config
+.vscode
