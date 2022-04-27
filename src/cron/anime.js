@@ -13,9 +13,11 @@ const anime = (instance) => {
             message: 'minutely',
             animeId: instance.id
         });
-        
-        axios.post('http://localhost:1111/anime', params.toString()).then(res => console.log(res.data)).catch(err => console.log(err));
-        if(!detail.airing){
+
+        axios.post('http://localhost:1111/anime', params.toString())
+            .then(res => console.log(`success sending message : ${detail.title} - ${instance.id}`))
+
+        if (!detail.airing) {
             await instance.destroy()
             self.stop();
             console.log(`${detail.title} is ended`)
@@ -23,9 +25,11 @@ const anime = (instance) => {
     }
 }
 
+//Return Promise that resolve array of task
 module.exports = (async () => {
     const animeScheduleModel = await ScheduleModel(await initDb());
     const animeScheduleInstances = await animeScheduleModel.findAll();
+    animeScheduleInstances.forEach(item => console.log(`cron ${item.cron}, id ${item.id}`))
     return animeScheduleInstances.map(animeScheduleInstance => Object.assign({}, {
         cron: animeScheduleInstance.cron, handler: anime(animeScheduleInstance)
     }))
