@@ -22,7 +22,7 @@ async function ScheduleModel({ sequelize, DataTypes }) {
         cron: {
             type: DataTypes.STRING,
             validate: {
-                isValidCron(value){
+                isValidCron(value) {
                     try {
                         cron(value);
                     } catch (error) {
@@ -55,11 +55,18 @@ async function destroy(schedule) {
     await schedule.drop();
 }
 
+async function updateSchedule(schedule, id, obj) {
+    let instance = await schedule.findByPk(id);
+    instance.set(obj);
+    return await instance.save();
+}
+
 module.exports = {
     initDb,
     ScheduleModel,
     getAllSchedule,
     deleteSchedule,
     addSchedule,
+    updateSchedule,
     destroy
 }
