@@ -8,3 +8,6 @@ no.js
 
 # vscode config
 .vscode
+
+# npm setting
+.npmrc
