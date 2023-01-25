@@ -3,6 +3,7 @@ const Cron = require('croner');
 const jayson = require('jayson');
 const CronMap = new Map();
 const animeHandler = require('./handler/anime')
+const logger = require('./logger/logger')
 const server = new jayson.Server({
     ping: function (args, callback) {
         console.log('pong')
