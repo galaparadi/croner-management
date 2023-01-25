@@ -72,9 +72,13 @@ const server = new jayson.Server({
 })
 
 server.tcp().listen(5678);
+
+(async () => {
     const handlers = await provider;
-    // console.log(handlers);
     handlers.forEach(item => {
-        Cron(item.cron, item.handler);
+        CronMap.set(item.id.toString(), Cron(item.cron, item.handler));
+        logger.info(`${item.id.toString()} added with cron ${item.cron}`)
+    });
+})().catch(err => {
+    logger.error(`croner main error : ${err.message}`)
     })
-})()
