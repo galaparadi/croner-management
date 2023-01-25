@@ -14,6 +14,7 @@
     "axios": "^0.26.1",
     "cheerio": "^1.0.0-rc.10",
     "croner": "^4.3.9",
+    "mongoose": "^6.8.3",
     "sequelize": "^6.19.0",
     "sqlite3": "^5.0.5",
     "winston": "^3.7.2"
