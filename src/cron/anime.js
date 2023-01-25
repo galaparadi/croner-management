@@ -16,6 +16,7 @@ const anime = (instance) => {
                 animeId: instance.id
             });
 
+            //sending message to bbbot
             axios.post('http://localhost:1111/anime', params.toString())
                 .then(res => logger.info(`success sending message : ${detail.title} - ${instance.id}`))
 
@@ -36,6 +37,6 @@ module.exports = (async () => {
     const animeScheduleInstances = await animeScheduleModel.findAll();
     animeScheduleInstances.forEach(item => logger.info(`adding : cron ${item.cron}, id ${item.id}`))
     return animeScheduleInstances.map(animeScheduleInstance => Object.assign({}, {
-        cron: animeScheduleInstance.cron, handler: anime(animeScheduleInstance)
+        cron: animeScheduleInstance.cron, handler: anime(animeScheduleInstance), id: animeScheduleInstance.id
     }))
 })()
