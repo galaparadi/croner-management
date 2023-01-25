@@ -1,4 +1,5 @@
 const provider = require('./lib/cron-provider');
+const { addAnimeCron, getScheduledAnimes: scheduledAnimes, destroyAnimeCron } = require('./datasource/anime-model');
 const Cron = require('croner');
 const jayson = require('jayson');
 const CronMap = new Map();
