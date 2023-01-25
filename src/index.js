@@ -1,6 +1,8 @@
 const provider = require('./lib/cron-provider');
 const Cron = require('croner');
 const jayson = require('jayson');
+const CronMap = new Map();
+const animeHandler = require('./handler/anime')
 const server = new jayson.Server({
     ping: function (args, callback) {
         console.log('pong')
